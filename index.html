@@ -2,72 +2,155 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="assets/images/javascript.svg" />
+		<link rel="icon" type="image/svg+xml" href="assets/img/javascript.svg">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.css"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>xip0enix | eine Webseite</title>
-		<link href="assets/fontawesome/css/all.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link href="https://fonts.googleapis.com/css?/family=Roboto:500" rel=""stylesheet>
-		<link href="https://fonts.googleapis.com/css?/family=Roboto+Slab" rel=""stylesheet>
 	</head>
 
 	<body>
+		<aside class="sitebar">
+			<nav class="navigation"></nav>
+		</aside>
 		
-		<header>
-			<div id="logo">
-					<a href="#">
-						<img src="assets/images/javascript.svg" alt="Logo">
-					</a>
-			</div>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<defs>
+				<filter id="gooey">
+					
+					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+					<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+						result="highContrastGraphic" />
+					<feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+				</filter>
+			</defs>
+		</svg>
+	
 
-			<nav id="main-nav">
-				<i class="fa fa-bars" aria-hidden="true"></i>
-				<ul>
-					<a href="#"><li>Home</li></a>
-					<a href="#about"><li>Warum</li></a>
-					<a href="#work"><li>Tools</li></a>
-					<a href="#timer"><li>Timer</li></a>
-				</ul>
-			</nav>
-		</header>
+
 
 		<section id="home">
+			<h1 class="headline">xip0enix</h1>
 			<hr>
-			<h1>xip0enix</h1>
-			<h2></h2>
-			<a href="#about">
-				<i class="fa-solid fa-circle-chevron-down"></i>
-			</a>
-		</section>
-
-		<section id="about">
-			<h3>Warum?</h3>
-			<hr>
-			<a href="https://avatarfiles.alphacoders.com/246/246064.jpg"><img src="assets/images/avatar.png" alt="Avatar"></a>
-			<h1>- Hier gibt es nichts zu sehen -</h1>
 			<p>Weil Langeweile</p>
-		</section>
-
-		<section id="work">
-			<h3>Tools</h3>
+			
 			<hr>
-
-			<div id="projects">
-					<ul><li><a href="https://xip0enix.github.io/code/"><img src="assets/images/pr1.jpg" alt="Projekt_01"></a></li></ul>
-					<ul><li><a href="https://linuxmint.com/"><img src="assets/images/pr2.jpg" alt="Projekt_02"></a></li></ul>
-					<ul><li><a href="https://www.raspberrypi.com/"><img src="assets/images/pr3.jpg" alt="Projekt_03"></a></li></ul>
-					<ul><li><a href="https://192.168.178.80"><img src="assets/images/p4.png" alt="Projekt_04"></a></li></ul>
-					
-			</div>
+			
+			<section id="bild">
+				<div class="card">
+					<img src="./assets/img/landing.jpg" width="720" alt="Raspberry">
+				</div>
+			</section>
+			
+			
+		</section>
+		<section id="info">
+			<h2 class="headline2">Tools</h2>
+			
+			<section id="epic">
+			
+				<div class="epic-slider">
+					<div class="epic-slider-view">
+						<div id="slider-1" class="slider-content active">
+							<div class="info">
+								<h3>Raspberry Pi</h3>
+								<p>
+									Ein kleiner Computer, den ich für verschiedene Zwecke verwende
+								</p>
+								<button onclick="window.location.href='https://www.raspberrypi.com/';">
+								-->  Webseite </button>
+								
+							</div>
+							<div class="background" style="
+											background-image: url('./assets/img/raspberry.webp');
+											"></div>
+						</div>
+						<div id="slider-2" class="slider-content">
+							<div class="info">
+								<h3>Linux</h3>
+								<p>
+									Linux > Windows
+								</p>
+								
+							</div>
+							<div class="background" style="
+											background-image: url('./assets/img/linux.webp');
+											"></div>
+						</div>
+						<div id="slider-3" class="slider-content">
+							<div class="info">
+								<h3>Visual Studio Code</h3>
+								<p>
+									Eine praktische IDE...
+								</p>
+								<button onclick="window.location.href='https://code.visualstudio.com/';">
+								-->  Webseite </button>
+								
+							</div>
+							<div class="background" style="
+											background-image: url('./assets/img/code.jpeg');
+											"></div>
+						</div>
+						<div id="slider-4" class="slider-content">
+							<div class="info">
+								<h3>Android Studio</h3>
+								<p>
+									...  
+								</p>
+								<button onclick="window.location.href='https://developer.android.com/studio';">
+								-->  Webseite </button>
+								
+							</div>
+							<div class="background" style="
+											background-image: url('./assets/img/android.jpeg');
+											"></div>
+						</div>
+						<div id="slider-5" class="slider-content">
+							<div class="info">
+								<h3>Sussy Pogger</h3>
+								<button onclick="window.location.href='https://192.168.178.80';">
+								-->  Webseite </button>
+								
+							</div>
+							<div class="background" style="
+											background-image: url('./assets/img/code.jpeg');
+											"></div>
+						</div>
+					</div>
+					<div class="epic-slider-preview">
+						<button data-slide="1" class="active preview-element">
+							<div style="background-image: url('https://seeklogo.com/images/R/raspberry-pi-logo-8240ABBDFE-seeklogo.com.png')" class="img"></div>
+							<p>Raspberry Pi</p>
+						</button>
+						<button data-slide="2" class="preview-element">
+							<div style="background-image: url('https://seeklogo.com/images/F/fedora-logo-27E96FA10A-seeklogo.com.png')" class="img"></div>
+							<p>Linux</p>
+						</button>
+						<button data-slide="3" class="preview-element">
+							<div style="background-image: url('https://seeklogo.com/images/V/visual-studio-code-logo-449D71944F-seeklogo.com.png')" class="img"></div>
+							<p>Visual Studio</p>
+						</button>
+						<button data-slide="4" class="preview-element">
+							<div style="background-image: url('https://seeklogo.com/images/A/android-studio-logo-1EE788C6EC-seeklogo.com.png')" class="img"></div>
+							<p>Android Studio</p>
+						</button>
+						<button data-slide="5" class="preview-element">
+							<i class="fa-solid fa-cloud"></i>
+							<p>Nextcloud</p>
+						</button>
+					</div>
+				</div>
+	
+			</section>
+			
 		</section>
 
-		<section id="timer">
-			<h3>Timer</h3>
-			<hr>
-			<a href="/timer">Countdown</a>
-		</section>
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-		<script src="js/mobile-menu.js"></script>
-
+	<script type="module" src="./js/main.js"></script>
+	<script src="./js/main.js"></script>
+	
+	<footer>
+		<p>⚡ Betrieben mit 100% nicht meinem Strom</p>
+	</footer>
 	</body>
+	
 </html>
