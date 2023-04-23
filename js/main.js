@@ -37,69 +37,72 @@ const headline2= document.querySelector('.headline2');
 
 
 //Epicgame
-let activeId = null;
-let timer = startTimer();
+let activeSlideId = null;
+let timerId = startTimer();
 
-buttons.forEach((button) => {
-	button.addEventListener('click', ($event) =>
-		select($event.target.dataset.slide)
-	);
+// Add event listener to buttons
+buttons.forEach(button => {
+  button.addEventListener('click', () => select(button.dataset.slide));
 });
 
+// Start the timer for the automatic slide change
 function startTimer() {
-	return setInterval(() => {
-		const nextButton =
-			getActiveButton().nextElementSibling ||
-			document.querySelector('.preview-element');
-		if (nextButton) {
-			select(nextButton.dataset.slide);
-		}
-	}, 5000);
+  return setInterval(() => {
+    const nextButton = getActiveButton()?.nextElementSibling || document.querySelector('.preview-element');
+    select(nextButton?.dataset?.slide);
+  }, 5000);
 }
 
+// Select the slide with the given ID
 function select(slideId) {
-	if (activeId === slideId) {
-		return;
-	}
-	activeId = slideId;
-	removeActiveSlide(slideId);
-	setNextSlidePreview(slideId);
-	removeActiveButton();
-	addActiveButton(slideId);
-	clearInterval(timer);
-	timer = startTimer();
+  if (activeSlideId === slideId) {
+    return;
+  }
+  activeSlideId = slideId;
+  removeActiveSlide();
+  setNextSlidePreview();
+  removeActiveButton();
+  addActiveButton();
+  clearInterval(timerId);
+  timerId = startTimer();
 }
 
-function setActiveSlide(id) {
-	const activeSlide = document.querySelector(`#slider-${id}`);
-	activeSlide.classList.add(activeClass);
+// Set the slide with the given ID as active
+function setActiveSlide(slideId) {
+  const activeSlide = document.querySelector(`#slider-${slideId}`);
+  activeSlide?.classList.add(activeClass);
 }
 
-function removeActiveSlide(id) {
-	const activeSlide = document.querySelector('.slider-content.active');
-	activeSlide.classList.remove(activeClass);
+// Remove the active class from the current slide
+function removeActiveSlide() {
+  const activeSlide = document.querySelector('.slider-content.active');
+  activeSlide?.classList.remove(activeClass);
 }
 
-function setNextSlidePreview(id) {
-	const preview = document.querySelector(`#slider-${id}`);
-	preview.classList.add(previewClass);
-	setTimeout(() => {
-		setActiveSlide(id);
-		preview.classList.remove(previewClass);
-	}, 250);
+// Set the preview class on the slide with the given ID
+function setNextSlidePreview() {
+  const preview = document.querySelector(`#slider-${activeSlideId}`);
+  preview?.classList.add(previewClass);
+  setTimeout(() => {
+    setActiveSlide(activeSlideId);
+    preview?.classList.remove(previewClass);
+  }, 250);
 }
 
-function addActiveButton(id) {
-	const activeButton = document.querySelector(`[data-slide="${id}"]`);
-	activeButton.classList.add(activeClass);
+// Add the active class to the button with the given ID
+function addActiveButton() {
+  const activeButton = document.querySelector(`[data-slide="${activeSlideId}"]`);
+  activeButton?.classList.add(activeClass);
 }
 
+// Get the active button element
 function getActiveButton() {
-	return document.querySelector('.preview-element.active');
+  return document.querySelector('.preview-element.active');
 }
 
+// Remove the active class from the current button
 function removeActiveButton() {
-	getActiveButton().classList.remove(activeClass);
+  getActiveButton()?.classList.remove(activeClass);
 }
 
 //slider
@@ -132,41 +135,37 @@ function createMenuHTMLItem(menuitem) {
 }
 
 // Menüpunkt einfügen
+const { backgroundClass, menuelementClass } = config;
+
 function renderNavigation() {
-    menuData.forEach(menuItem => {
-        navigation.appendChild(createMenuHTMLItem(menuItem));
-    })
+  menuData.forEach(menuItem => {
+    navigation.appendChild(createMenuHTMLItem(menuItem));
+  });
 }
 
 renderNavigation();
 
-//Standartfarbe setzen
-sitebar.classList.add(...[config.backgroundClass]);
-headline.classList.add(...[config.backgroundClass]);
-headline2.classList.add(...[config.backgroundClass])
+// Set standard background color
+[sitebar, headline, headline2].forEach(elm => {
+  elm.classList.add(backgroundClass);
+});
 
-
-setColorToElements(config.backgroundClass, menuData[0].color);
-
+setColorToElements(backgroundClass, menuData[0].color);
 
 function setColorToElements(cssClass, color) {
-    const elements = document.querySelectorAll(`.${cssClass}`);
-    elements.forEach(elm => {
-        elm.style.backgroundColor = color;
-        
-        
-    })
+  const elements = document.querySelectorAll(`.${cssClass}`);
+  elements.forEach(elm => {
+    elm.style.backgroundColor = color;
+  });
 }
 
-setColorToElements(config.backgroundClass, menuData[0].color);
+setColorToElements(backgroundClass, menuData[0].color);
 
-const getEventTrigger = sitebar.querySelectorAll(`.${config.menuelementClass}`);
-getEventTrigger.forEach(elm => {
-	elm.addEventListener('mouseenter', function(e) {
-		setColorToElements(config.backgroundClass, e.target.dataset.color);
-        
-	})
-})
+const eventTriggers = sitebar.querySelectorAll(`.${menuelementClass}`);
+eventTriggers.forEach(trigger => {
+  trigger.addEventListener('mouseenter', (e) => {
+    setColorToElements(backgroundClass, e.target.dataset.color);
+  });
+});
 
-//TEst
 
