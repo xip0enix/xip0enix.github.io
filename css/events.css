@@ -1,0 +1,66 @@
+/* Set height to 100% for the body and html tags, and center the content. */
+body, html {
+    height: 100%;
+    text-align: center;
+    background-color: #0c1016;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+  }
+  
+  /* Style for the main heading. */
+  h1 {
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #00ff6e;
+    text-transform: uppercase;
+  }
+  
+  /* Style for secondary headings and links. */
+  h2, h3, a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #00ff6e;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  
+  /* Style for tables. */
+  table {
+    padding-bottom: 7%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Style for table header cells. */
+  th {
+    font-weight: bolder;
+  }
+  
+  /* Style for table header cells and table data cells. */
+  th, td {
+    border: 1px solid #00ff6e;
+    font-size: 20px;
+    padding: 12px;
+  }
+  
+  /* Media query for smaller screens. */
+  @media only screen and (max-width: 68.75em) {
+    h1 {
+      font-size: 23px;
+    }
+    table {
+      margin-top: 5vh;
+      padding: 0px;
+    }
+    th {
+      font-size: 14;
+    }
+    td {
+      font-size: 13px;
+      padding: 3px;
+    }
+  }
+  
