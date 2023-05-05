@@ -21,7 +21,14 @@ const menuData = [
         icon: '<i class="fa-regular fa-clock"></i>',
         color: '#21ebff',
         link: 'https://xip0enix.github.io/timer/'
-    }
+    },
+    {
+      label: 'Events',
+      icon: '<i class="fa-solid fa-calendar-days"></i>',
+      color: '#FF6347',
+      link: '/events.html'
+  }
+    
 ];
 const config = {
     menuelementClass: 'menuelement',

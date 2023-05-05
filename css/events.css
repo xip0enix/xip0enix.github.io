@@ -45,6 +45,23 @@ body, html {
     font-size: 20px;
     padding: 12px;
   }
+
+  .content button
+{
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    padding: 12px 25px;
+    color: #fff;
+    align-items: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.content button a
+{
+    color: #fff;
+    text-decoration: none;
+}
   
   /* Media query for smaller screens. */
   @media only screen and (max-width: 68.75em) {
